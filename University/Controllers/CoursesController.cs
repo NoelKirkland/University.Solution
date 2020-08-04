@@ -11,14 +11,31 @@ namespace University.Controllers
     public class CoursesController : Controller
     {
 
-      private readonly UniversityContext
+      private readonly UniversityContext _db;
 
-
-
+      public CoursesController(UniversityContext db)
+    {
+      _db = db;
     }
 
+    public ActionResult Index()
+    {
+      List<Course> model = _db.Courses.ToList()
+      return View(model);
+    }
 
+    public ActionResult Create()
+    {
+      retun View()
+    }
+      
+    [HttpPost]
+    public ActionResult Create(Course course)
+    {
+      _db.Courses.Add(course);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-
-
+  }
 }
