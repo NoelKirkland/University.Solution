@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace University.Model
+namespace University.Models
 {
   public class Course
   {
@@ -15,7 +15,7 @@ namespace University.Model
     
     public int CourseId { get; set; }
 
-    public virtual ICollection<CourseStudent> Students { get; set; }
+    public ICollection<CourseStudent> Students { get; set; }
 
   }
 

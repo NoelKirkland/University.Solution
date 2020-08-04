@@ -24,7 +24,7 @@ namespace University
     {
       services.AddMvc();
       services.AddEntityFrameworkMySql()
-        .AddDbContext<FavoriteClientContext>(options => options
+        .AddDbContext<UniversityContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
