@@ -9,7 +9,6 @@ namespace University.Models
     {
       this.Courses = new HashSet<CourseStudent>();
     }
-
     public string Name { get; set; }
     public DateTime DateOfEnrollment { get; set; }
     public int StudentId { get; set; }
