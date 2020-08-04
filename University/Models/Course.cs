@@ -18,5 +18,4 @@ namespace University.Models
     public ICollection<CourseStudent> Students { get; set; }
 
   }
-
 }
