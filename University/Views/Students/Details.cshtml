@@ -1,0 +1,24 @@
+@model University.Models.Student
+
+<h2>Student Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(model => model.Name)</h3>
+@* <h3>@Html.DisplayNameFor(model => model.Courses.CourseName) : @Html.DisplayFor(model => model.Courses.CourseName)</h3> *@
+@if (@Model.Courses.Count == 0 )
+{
+  <p>This Student does not belong to any courses</p>
+}
+else
+{
+  <h4>Courses this student belongs to:</h4>
+  <ul>
+  @foreach(var join in Model.Courses)
+  {
+    <li>@join.Course.CourseName</li>
+  }
+  </ul>
+}
+<p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Back to Student list", "Index")</p>
+@* <p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p> *@

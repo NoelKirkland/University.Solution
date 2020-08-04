@@ -20,13 +20,13 @@ namespace University.Controllers
 
     public ActionResult Index()
     {
-      List<Course> model = _db.Courses.ToList()
+      List<Course> model = _db.Courses.ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      retun View()
+      return View();
     }
       
     [HttpPost]
@@ -36,6 +36,5 @@ namespace University.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
   }
 }

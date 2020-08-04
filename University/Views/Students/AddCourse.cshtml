@@ -1,0 +1,28 @@
+
+@model University.Models.Student
+
+<h2>Enroll student in a course</h2>
+
+
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+
+@if (@Model.Courses.Count == 0)
+{
+  <p>This student has not been enrolled in any courses yet</p>
+}
+
+  <p>This student is enrolled in the following courses:</p>
+  @foreach(var join in Model.Courses)
+  {
+    <li>@join.Course.CourseName</li>
+  }
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Select a course")
+  @Html.DropDownList("CourseId")
+
+  <input type="submit" value="Add Course"/>
+}
+
+<p>@Html.ActionLink("Student Detail", "Details", new { id = Model.StudentId })</p>
